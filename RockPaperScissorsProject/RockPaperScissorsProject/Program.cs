@@ -11,6 +11,7 @@ namespace RockPaperScissorsProject
         static void Main(string[] args)
         {
             Game gameStart = new Game();
+            gameStart.BeginGame();
         }
     }
 }

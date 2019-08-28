@@ -20,8 +20,9 @@ namespace RockPaperScissorsProject
         // member methods
         public override string ChooseGesture()
         {
-            Console.WriteLine("What is your weapon of choice? 'rock', 'paper', 'scissors', 'lizard', or 'spock'?);
-            choice = Console.ReadLine();
+            Console.WriteLine("What is your weapon of choice? 'rock', 'paper', 'scissors', 'lizard', or 'spock'?");
+            
+                choice = Console.ReadLine();
             switch (choice)
             {
                 case "rock":

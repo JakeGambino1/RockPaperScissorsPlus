@@ -9,8 +9,10 @@ namespace RockPaperScissorsProject
     public class Game
     {
         // member variables
-        Player p1 = new HumanPlayer();
-        Player p2;
+        public Player p1 = new HumanPlayer();
+        public Player p2;
+        public string winningPlayer;
+        bool isWinner;
 
         // constructor
         public Game()
@@ -19,6 +21,16 @@ namespace RockPaperScissorsProject
         }
 
         // member methods
+        // Begin Game
+        public void BeginGame()
+        {
+            ChooseOpponent();
+            p1.ChooseGesture();
+            p2.ChooseGesture();
+            Player winnerOfGame = CompareGestures();
+            AddScoreToPlayer(winnerOfGame);
+            CheckScoreForWinner(winnerOfGame);
+        }
 
         // Choose AI or Human Opponent
         public void ChooseOpponent()
@@ -38,18 +50,10 @@ namespace RockPaperScissorsProject
                 Console.WriteLine("please enter a valid option -- 'p' for player opponent or 'ai' for AI opponent.");
             }
         }
-        
-        // BeginGame
-        public void BeginGame()
-        {
-
-        }
-
-        // Players Choose Gestures
-
+        // Players Choose Gesture
 
         // Compare Player Gestures to return Winning Player
-        public static Player CompareGestures()
+        public Player CompareGestures()
         {
             // rock > scissors
             // scissors > paper
@@ -61,21 +65,23 @@ namespace RockPaperScissorsProject
             // lizard > paper
             // paper > spock
             // spock > rock
+            return p1;
 
         }
 
         // Add Score to Winning Player
-        public void AddScoreToPlayer(Player winnerOfGame)
+        public int AddScoreToPlayer(Player winnerOfGame)
         {
-            winnerOfGame.score += 1;
+            return winnerOfGame.score += 1;
         }
 
         // Check Score of Winning Player
-        public void CheckWinCondition()
+        public void CheckScoreForWinner(Player winnerOfGame)
         {
             if (winnerOfGame.score == 2)
             {
                 // declare winner
+                isWinner = true;
             }
             else
             {
