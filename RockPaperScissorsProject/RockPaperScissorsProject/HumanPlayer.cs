@@ -15,6 +15,7 @@ namespace RockPaperScissorsProject
         public HumanPlayer()
         {
             gesture = ChooseGesture();
+            // inherited?? score = 0;
         }
         // member methods
         public override string ChooseGesture()
@@ -24,21 +25,19 @@ namespace RockPaperScissorsProject
             switch (choice)
             {
                 case "rock":
-                    gesture = "rock";
-                    break;
+                    return gesture = "rock";
                 case "paper":
-                    gesture = "paper";
-                    break;
+                    return gesture = "paper";
                 case "scissors":
-                    gesture = "scissors";
-                    break;
+                    return gesture = "scissors";
                 case "lizard":
-                    gesture = "lizard";
-                    break;
+                    return gesture = "lizard";
                 case "spock":
-                    gesture = "spock";
-                    break;
-
+                    return gesture = "spock";
+                default:
+                    Console.WriteLine("YOU FOOL! " + choice + " is not effective in this battle!");
+                    string nextChance = ChooseGesture();
+                    return nextChance;
             }
         }
     }

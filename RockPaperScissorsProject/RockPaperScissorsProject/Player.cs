@@ -10,11 +10,13 @@ namespace RockPaperScissorsProject
     {
         // member variables
         public string gesture;
+        public int score;
 
         // constructor
         public Player()
         {
             gesture = null;
+            score = 0;
         }
 
         // member methods

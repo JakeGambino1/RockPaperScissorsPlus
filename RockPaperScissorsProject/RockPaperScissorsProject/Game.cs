@@ -11,15 +11,20 @@ namespace RockPaperScissorsProject
         // member variables
         Player p1 = new HumanPlayer();
         Player p2;
-        int score;
-
 
         // constructor
+        public Game()
+        {
+            
+        }
 
         // member methods
+
+        // Choose AI or Human Opponent
         public void ChooseOpponent()
         {
-            string choice = Console.WriteLine("Will you be playing against another person (p) or AI ('ai')?");
+            Console.WriteLine("Will you be playing against another person (p) or AI ('ai')?");
+            string choice = Console.ReadLine();
             if (choice == "p")
             {
                 p2 = new HumanPlayer();
@@ -33,7 +38,18 @@ namespace RockPaperScissorsProject
                 Console.WriteLine("please enter a valid option -- 'p' for player opponent or 'ai' for AI opponent.");
             }
         }
-        public void CompareGestures(string p1.gesture, string p2.gesture)
+        
+        // BeginGame
+        public void BeginGame()
+        {
+
+        }
+
+        // Players Choose Gestures
+
+
+        // Compare Player Gestures to return Winning Player
+        public static Player CompareGestures()
         {
             // rock > scissors
             // scissors > paper
@@ -46,6 +62,25 @@ namespace RockPaperScissorsProject
             // paper > spock
             // spock > rock
 
+        }
+
+        // Add Score to Winning Player
+        public void AddScoreToPlayer(Player winnerOfGame)
+        {
+            winnerOfGame.score += 1;
+        }
+
+        // Check Score of Winning Player
+        public void CheckWinCondition()
+        {
+            if (winnerOfGame.score == 2)
+            {
+                // declare winner
+            }
+            else
+            {
+                // continue to another game
+            }
         }
     }
 }

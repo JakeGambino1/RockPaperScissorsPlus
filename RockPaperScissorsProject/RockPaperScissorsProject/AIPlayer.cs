@@ -11,11 +11,18 @@ namespace RockPaperScissorsProject
         // member variables
 
         // constructor
+        public AIPlayer()
+        {
+            gesture = ChooseGesture();
+            // Inherited ??? score = 0;
+        }
 
         // member methods
-        public override void ChooseGesture()
+        public override string ChooseGesture()
         {
+            // Need random 1-5 generator
 
+            return "choice";
         }
     }
 }
