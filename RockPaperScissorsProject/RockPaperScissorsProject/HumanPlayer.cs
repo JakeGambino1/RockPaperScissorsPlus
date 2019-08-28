@@ -9,21 +9,20 @@ namespace RockPaperScissorsProject
     public class HumanPlayer : Player
     {
         // member variables
-        public string choice;
+        public string gestureChoice;
 
         // constructor
         public HumanPlayer()
         {
-            gesture = ChooseGesture();
+            gesture = null;
             // inherited?? score = 0;
         }
         // member methods
         public override string ChooseGesture()
         {
             Console.WriteLine("What is your weapon of choice? 'rock', 'paper', 'scissors', 'lizard', or 'spock'?");
-            
-                choice = Console.ReadLine();
-            switch (choice)
+            gestureChoice = Console.ReadLine();
+            switch (gestureChoice)
             {
                 case "rock":
                     return gesture = "rock";
@@ -36,7 +35,7 @@ namespace RockPaperScissorsProject
                 case "spock":
                     return gesture = "spock";
                 default:
-                    Console.WriteLine("YOU FOOL! " + choice + " is not effective in this battle!");
+                    Console.WriteLine("YOU FOOL! " + gestureChoice + " is not effective in this battle!");
                     string nextChance = ChooseGesture();
                     return nextChance;
             }

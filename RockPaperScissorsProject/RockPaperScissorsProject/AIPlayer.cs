@@ -15,8 +15,7 @@ namespace RockPaperScissorsProject
         // constructor
         public AIPlayer()
         {
-            gesture = ChooseGesture();
-            // Inherited ??? score = 0;
+
         }
 
         // member methods

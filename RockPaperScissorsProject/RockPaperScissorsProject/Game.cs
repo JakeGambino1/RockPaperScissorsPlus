@@ -10,9 +10,7 @@ namespace RockPaperScissorsProject
     {
         // member variables
         public Player p1 = new HumanPlayer();
-        public Player p2;
-        public string winningPlayer;
-        bool isWinner;
+        public Player p2 = new AIPlayer();
 
         // constructor
         public Game()
@@ -28,6 +26,8 @@ namespace RockPaperScissorsProject
             p1.ChooseGesture();
             p2.ChooseGesture();
             Player winnerOfGame = CompareGestures();
+                Console.WriteLine(winnerOfGame);
+                Console.ReadLine();
             AddScoreToPlayer(winnerOfGame);
             CheckScoreForWinner(winnerOfGame);
         }
@@ -40,10 +40,12 @@ namespace RockPaperScissorsProject
             if (choice == "p")
             {
                 p2 = new HumanPlayer();
+                Console.WriteLine(p2);
             }
             else if (choice == "ai")
             {
                 p2 = new AIPlayer();
+                Console.WriteLine(p2);
             }
             else
             {
@@ -55,18 +57,51 @@ namespace RockPaperScissorsProject
         // Compare Player Gestures to return Winning Player
         public Player CompareGestures()
         {
-            // rock > scissors
-            // scissors > paper
-            // paper > rock
-            // rock > lizard
-            // lizard > spock
-            // spock > scissors
-            // scissors > lizard
-            // lizard > paper
-            // paper > spock
-            // spock > rock
-            return p1;
 
+            if (p1.gesture == "rock" && (p2.gesture == "scissors" || p2.gesture == "lizard"))
+            {
+                return p1;
+            }
+            else if (p2.gesture == "rock" && (p1.gesture == "scissors" || p1.gesture == "lizard"))
+            {
+                return p2;
+            }
+            else if (p1.gesture == "scissors" && (p2.gesture == "paper" || p2.gesture == "lizard"))
+            {
+                return p1;
+            }
+            else if (p2.gesture == "scissors" && (p1.gesture == "paper" || p1.gesture == "lizard"))
+            {
+                return p2;
+            }
+            else if (p1.gesture == "paper" && (p2.gesture == "rock" || p2.gesture == "spock"))
+            {
+                return p1;
+            }
+            else if (p2.gesture == "paper" && (p1.gesture == "rock" || p1.gesture == "spock"))
+            {
+                return p2;
+            }
+            else if (p1.gesture == "lizard" && (p2.gesture == "spock" || p2.gesture == "paper"))
+            {
+                return p1;
+            }
+            else if (p2.gesture == "lizard" && (p1.gesture == "spock" || p1.gesture == "paper"))
+            {
+                return p2;
+            }
+            else if (p1.gesture == "spock" && (p2.gesture == "scissors" || p2.gesture == "rock"))
+            {
+                return p1;
+            }
+            else if (p2.gesture == "spock" && (p1.gesture == "scissors" || p1.gesture == "rock"))
+            {
+                return p2;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         // Add Score to Winning Player
@@ -81,7 +116,7 @@ namespace RockPaperScissorsProject
             if (winnerOfGame.score == 2)
             {
                 // declare winner
-                isWinner = true;
+                p1.isWinner = true;
             }
             else
             {
