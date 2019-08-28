@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsProject
 {
-    class Program
+    class AIPlayer : Player
     {
-        static void Main(string[] args)
+        // member variables
+
+        // constructor
+
+        // member methods
+        public override void ChooseGesture()
         {
 
         }
