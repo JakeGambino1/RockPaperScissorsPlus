@@ -13,7 +13,6 @@ namespace RockPaperScissorsProject
         public string gesture;
         public int score;
         public bool isWinner;
-        public bool isTie;
 
         // constructor
         public Player()
