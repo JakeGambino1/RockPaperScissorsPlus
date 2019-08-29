@@ -35,8 +35,6 @@ namespace RockPaperScissorsProject
             p2.ChooseGesture();
             CompareGestures();
             AddScoreToPlayer();
-            Console.WriteLine(p1.score);
-            Console.WriteLine(p2.score);
             CheckScoreForWinner();
             Console.ReadLine();
         }
@@ -118,7 +116,6 @@ namespace RockPaperScissorsProject
         {
             if (p1.score == (bestOfX + 1) / 2)
             {
-                // declare winner
                 Console.WriteLine(p1.name + " has won this epic match!");
             }
             else if (p2.score == (bestOfX +1) / 2)
@@ -126,8 +123,7 @@ namespace RockPaperScissorsProject
                 Console.WriteLine(p2.name + " has won this epic match!");
             }
 
-            Console.WriteLine(p1.name + " currently has a score of " + p1.score + ".");
-            Console.WriteLine(p2.name + " currently has a score of " + p2.score + ".");
+            Console.WriteLine("Current score: \n" + p1.name + " " + p1.score + " - " + p2.score + " " + p2.name);
             while (p1.score != (bestOfX + 1) /2 && p2.score != (bestOfX + 1) / 2)
             {
                 BeginRound();

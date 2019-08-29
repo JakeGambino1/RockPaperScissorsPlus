@@ -9,9 +9,8 @@ namespace RockPaperScissorsProject
     public class AIPlayer : Player
     {
         // member variables
-        public static List<string> weaponsOfWar = new List<string>();
-        public static Random randomNumber = new Random();
-
+        public static List<string> gestureChoices = new List<string>();
+        public static Random random = new Random();
 
         // constructor
         public AIPlayer()
@@ -24,37 +23,18 @@ namespace RockPaperScissorsProject
         {
             name = "Aspiring Skynet Soldier";
         }
-        
+
         public override void ChooseGesture()
         {
-            randomNumber.Next(6);
-            Console.WriteLine(randomNumber);
-            Console.ReadLine();
-            if (Convert.ToInt32(randomNumber) == 1)
-            {
-                gesture = "rock";
-            }
-            else if (Convert.ToInt32(randomNumber) == 2)
-            {
-                gesture = "paper";
-            }
-            else if (Convert.ToInt32(randomNumber) == 3)
-            {
-                gesture = "scissors";
-            }
-            else if (Convert.ToInt32(randomNumber) == 4)
-            {
-                gesture = "lizard";
-            }
-            else if (Convert.ToInt32(randomNumber) == 5)
-            {
-                gesture = "spock";
-            }
-            else
-            {
-                Console.WriteLine("Please choose a valid option");
-                ChooseGesture();
-            }
+            gestureChoices.Add("rock");
+            gestureChoices.Add("paper");
+            gestureChoices.Add("scissors");
+            gestureChoices.Add("lizard");
+            gestureChoices.Add("spock");
+
+            int randomNumber = random.Next(0, gestureChoices.Count());
+            gesture = gestureChoices[randomNumber];
+            Console.WriteLine("AI player has chosen " + gesture + " to crush the mortal world!");
         }
     }
 }
