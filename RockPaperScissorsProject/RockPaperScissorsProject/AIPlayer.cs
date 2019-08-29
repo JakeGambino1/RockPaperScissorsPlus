@@ -10,7 +10,8 @@ namespace RockPaperScissorsProject
     {
         // member variables
         public static List<string> weaponsOfWar = new List<string>();
-        public static int randomNumber = 1;
+        public static Random randomNumber = new Random();
+
 
         // constructor
         public AIPlayer()
@@ -18,47 +19,42 @@ namespace RockPaperScissorsProject
 
         }
 
-        // member methods
-        public override string ChooseGesture()
+        // member method
+        public override void ChooseName()
         {
-            // need random 1-5 generator
-            return gesture = "rock";
+            name = "Aspiring Skynet Soldier";
         }
-
-        //public static int GetRandomNumber()
-        //{
-        //    return int;
-        //}
-
-        //public static string ConvertRandomNumberToWeapon(randomNumber)
-        //{
-
-        //    //weaponsOfWar.Add("rock");
-        //    //weaponsOfWar.Add("paper");
-        //    //weaponsOfWar.Add("scissors");
-        //    //weaponsOfWar.Add("lizard");
-        //    //weaponsOfWar.Add("spock");
-
-        //    //if (randomNumber == 1)
-        //    //{
-        //    //    p2.weapon = "rock";
-        //    //}
-        //    //else if (randomNumber == 2)
-        //    //{
-        //    //    p2.weapon = "paper";
-        //    //}
-        //    //else if (randomNumber == 3)
-        //    //{
-        //    //    p2.weapon = "scissors";
-        //    //}
-        //    //else if (randomNumber == 4)
-        //    //{
-        //    //    p2.weapon = "lizard";
-        //    //}
-        //    //else if (randomNumber == 5)
-        //    //{
-        //    //    p2.weapon = "spock";
-        //    //}
-        //}
+        
+        public override void ChooseGesture()
+        {
+            randomNumber.Next(6);
+            Console.WriteLine(randomNumber);
+            Console.ReadLine();
+            if (Convert.ToInt32(randomNumber) == 1)
+            {
+                gesture = "rock";
+            }
+            else if (Convert.ToInt32(randomNumber) == 2)
+            {
+                gesture = "paper";
+            }
+            else if (Convert.ToInt32(randomNumber) == 3)
+            {
+                gesture = "scissors";
+            }
+            else if (Convert.ToInt32(randomNumber) == 4)
+            {
+                gesture = "lizard";
+            }
+            else if (Convert.ToInt32(randomNumber) == 5)
+            {
+                gesture = "spock";
+            }
+            else
+            {
+                Console.WriteLine("Please choose a valid option");
+                ChooseGesture();
+            }
+        }
     }
 }

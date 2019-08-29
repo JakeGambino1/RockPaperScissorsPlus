@@ -14,30 +14,39 @@ namespace RockPaperScissorsProject
         // constructor
         public HumanPlayer()
         {
-            gesture = null;
-            // inherited?? score = 0;
+
         }
         // member methods
-        public override string ChooseGesture()
+        public override void ChooseName()
+        {
+            Console.WriteLine("What is Yo name?");
+            name = Console.ReadLine();
+        }
+        public override void ChooseGesture()
         {
             Console.WriteLine("What is your weapon of choice? 'rock', 'paper', 'scissors', 'lizard', or 'spock'?");
             gestureChoice = Console.ReadLine();
             switch (gestureChoice)
             {
                 case "rock":
-                    return gesture = "rock";
+                    gesture = "rock";
+                    break;
                 case "paper":
-                    return gesture = "paper";
+                    gesture = "paper";
+                    break;
                 case "scissors":
-                    return gesture = "scissors";
+                    gesture = "scissors";
+                    break;
                 case "lizard":
-                    return gesture = "lizard";
+                    gesture = "lizard";
+                    break;
                 case "spock":
-                    return gesture = "spock";
+                    gesture = "spock";
+                    break;
                 default:
                     Console.WriteLine("YOU FOOL! " + gestureChoice + " is not effective in this battle!");
-                    string nextChance = ChooseGesture();
-                    return nextChance;
+                    ChooseGesture();
+                    break;
             }
         }
     }

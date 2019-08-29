@@ -24,6 +24,8 @@ namespace RockPaperScissorsProject
         }
 
         // member methods
-        public abstract string ChooseGesture();
+        public abstract void ChooseGesture();
+
+        public abstract void ChooseName();
     }
 }
