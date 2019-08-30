@@ -21,7 +21,7 @@ namespace RockPaperScissorsProject
         // member method
         public override void ChooseName()
         {
-            name = "Aspiring Skynet Soldier";
+            playerName = "Aspiring Skynet Soldier";
         }
 
         public override void ChooseGesture()

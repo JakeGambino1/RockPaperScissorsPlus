@@ -53,7 +53,7 @@ namespace RockPaperScissorsProject
             }
             else
             {
-                Console.WriteLine("please enter a valid option -- '1' or '2'");
+                Console.WriteLine("Please enter a valid option -- '0', '1', or '2' - Flamingo and Banana are not acceptible inputs.");
             }
         }
         public void ChooseBestOfX()
@@ -98,11 +98,11 @@ namespace RockPaperScissorsProject
         }
         public void AddScoreToWinner()
         {
-            if (p1.isWinner == true)
+            if (p1.isWinner)
             {
                 p1.score++;
             }
-            else if (p2.isWinner == true)
+            else if (p2.isWinner)
             {
                 p2.score++;
             }
@@ -112,13 +112,13 @@ namespace RockPaperScissorsProject
         {
             if (p1.score == (bestOfX + 1) / 2)
             {
-                Console.WriteLine(p1.name + " has won this epic match!");
+                Console.WriteLine(p1.playerName + " has won this epic match!");
             }
             else if (p2.score == (bestOfX + 1) / 2)
             {
-                Console.WriteLine(p2.name + " has won this epic match!");
+                Console.WriteLine(p2.playerName + " has won this epic match!");
             }
-            Console.WriteLine("Current score: \n" + p1.name + " " + p1.score + " - " + p2.score + " " + p2.name);
+            Console.WriteLine("Current score: \n" + p1.playerName + " " + p1.score + " - " + p2.score + " " + p2.playerName);
             while (p1.score != (bestOfX + 1) /2 && p2.score != (bestOfX + 1) / 2)
             {
                 BeginRound();

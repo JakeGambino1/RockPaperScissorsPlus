@@ -10,12 +10,12 @@ namespace RockPaperScissorsProject
     {
         public Paper()
         {
-            name = "paper";
+            gestureName = "paper";
         }
 
-        public override bool WinsAgainst(Gesture comparisonPlayerGestureChoice)
+        public override bool WinsAgainst(Gesture comparisonPlayerGesture)
         {
-            if (comparisonPlayerGestureChoice.name == "rock" || comparisonPlayerGestureChoice.name == "spock")
+            if (comparisonPlayerGesture.gestureName == "rock" || comparisonPlayerGesture.gestureName == "spock")
             {
                 return true;
             }

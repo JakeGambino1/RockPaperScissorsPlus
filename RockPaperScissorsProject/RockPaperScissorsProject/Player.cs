@@ -8,7 +8,7 @@ namespace RockPaperScissorsProject
 {
     public abstract class Player
     {
-        public string name;
+        public string playerName;
         public Gesture gesture;
         public int score;
         public bool isWinner;

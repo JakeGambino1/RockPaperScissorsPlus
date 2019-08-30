@@ -8,7 +8,7 @@ namespace RockPaperScissorsProject
 {
     public abstract class Gesture
     {
-        public string name;
+        public string gestureName;
         
         public Gesture()
         {
