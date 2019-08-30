@@ -17,6 +17,7 @@ namespace RockPaperScissorsProject
         // constructor
         public Player()
         {
+            ChooseName();
             gesture = null;
             score = 0;
             isWinner = false;
@@ -24,7 +25,6 @@ namespace RockPaperScissorsProject
 
         // member methods
         public abstract void ChooseGesture();
-
         public abstract void ChooseName();
     }
 }

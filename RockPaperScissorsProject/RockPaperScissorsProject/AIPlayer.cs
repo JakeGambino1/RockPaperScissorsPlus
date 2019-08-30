@@ -35,6 +35,7 @@ namespace RockPaperScissorsProject
             int randomNumber = random.Next(0, gestureChoices.Count());
             gesture = gestureChoices[randomNumber];
             Console.WriteLine("AI player has chosen " + gesture + " to crush the mortal world!");
+            Console.Clear();
         }
     }
 }

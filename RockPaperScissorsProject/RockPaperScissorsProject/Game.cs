@@ -19,13 +19,10 @@ namespace RockPaperScissorsProject
             
         }
 
-        // member methods
         // Begin Game
         public void BeginMatch()
         {
             ChoosePlayers();
-            p1.ChooseName();
-            p2.ChooseName();
             ChooseBestOfX();
             BeginRound();
         }
@@ -38,10 +35,9 @@ namespace RockPaperScissorsProject
             CheckScoreForWinner();
             Console.ReadLine();
         }
-        // Choose AI or Human Opponent
         public void ChoosePlayers()
         {
-            Console.WriteLine("Will this be '1' or '2' players?");
+            Console.WriteLine("Will this be '0', '1', or '2' players?");
             string choice = Console.ReadLine();
             if (choice == "2")
             {
@@ -53,6 +49,11 @@ namespace RockPaperScissorsProject
                 p1 = new HumanPlayer();
                 p2 = new AIPlayer();
             }
+            else if (choice == "0")
+            {
+                p1 = new AIPlayer();
+                p2 = new AIPlayer();
+            }
             else
             {
                 Console.WriteLine("please enter a valid option -- '1' or '2'");
@@ -60,16 +61,23 @@ namespace RockPaperScissorsProject
         }
         public void ChooseBestOfX()
         {
-            Console.WriteLine("How long of a series do you want? Best of X (odd numbers only)");
-            bestOfX = Convert.ToInt16(Console.ReadLine());
-            if (bestOfX % 2 == 1)
+            try
+            {
+                Console.WriteLine("How long of a series do you want? Best of X (odd numbers only)");
+                bestOfX = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception){}
+
+            if (bestOfX >= 3 && bestOfX % 2 == 1)
             {
                 return;
             }
-            Console.WriteLine("You must choose an odd number of games");
-            ChooseBestOfX();
+            else
+            {
+                Console.WriteLine("Input must be an odd number greater than or equal to 3");
+                ChooseBestOfX();
+            }
         }
-        // Compare Player Gestures to return Winning Player
         public bool CompareGestures()
         {
             p1.isWinner = false;
@@ -80,7 +88,7 @@ namespace RockPaperScissorsProject
                 (p1.gesture == "lizard" && (p2.gesture == "spock" || p2.gesture == "paper")) ||
                 (p1.gesture == "spock" && (p2.gesture == "scissors" || p2.gesture == "rock")))
             {
-                Console.WriteLine(p1.name + " won the round with " + p1.gesture + "!");
+                Console.WriteLine(p1.name + " won the round with " + p1.gesture + "!" + p2.name + "'s " + p2.gesture + " was no match!");
                 p1.isWinner = true;
             }
             else if ((p2.gesture == "rock" && (p1.gesture == "scissors" || p1.gesture == "lizard")) ||
@@ -89,16 +97,15 @@ namespace RockPaperScissorsProject
                 (p2.gesture == "lizard" && (p1.gesture == "spock" || p1.gesture == "paper")) ||
                 (p2.gesture == "spock" && (p1.gesture == "scissors" || p1.gesture == "rock")))
             {
-                Console.WriteLine(p2.name + " won the round with " + p2.gesture + "!");
+                Console.WriteLine(p2.name + " won the round with " + p2.gesture + "!" + p1.name + "'s " + p1.gesture + " was no match!");
                 p2.isWinner = true;
             }
             else
             { 
-            Console.WriteLine("Tie! Go again!");
+                Console.WriteLine("Tie! Go again!");
             }
             return false;
         }
-        // Add Score to Winning Player
         public void AddScoreToPlayer()
         {
             if (p1.isWinner == true)
@@ -111,14 +118,13 @@ namespace RockPaperScissorsProject
             }
             return;
         }
-        // Check Score of Winning Player
         public void CheckScoreForWinner()
         {
             if (p1.score == (bestOfX + 1) / 2)
             {
                 Console.WriteLine(p1.name + " has won this epic match!");
             }
-            else if (p2.score == (bestOfX +1) / 2)
+            else if (p2.score == (bestOfX + 1) / 2)
             {
                 Console.WriteLine(p2.name + " has won this epic match!");
             }

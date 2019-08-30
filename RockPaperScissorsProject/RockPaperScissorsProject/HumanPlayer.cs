@@ -19,12 +19,13 @@ namespace RockPaperScissorsProject
         // member methods
         public override void ChooseName()
         {
-            Console.WriteLine("What is Yo name?");
+            Console.WriteLine("Choose a name for your existence.");
             name = Console.ReadLine();
+            Console.WriteLine("Player confirmed as " + name);
         }
         public override void ChooseGesture()
         {
-            Console.WriteLine("What is your weapon of choice? 'rock', 'paper', 'scissors', 'lizard', or 'spock'?");
+            Console.WriteLine("What weapon will " + name + " choose?-- 'rock', 'paper', 'scissors', 'lizard', or 'spock'?");
             gestureChoice = Console.ReadLine();
             switch (gestureChoice)
             {
@@ -48,6 +49,7 @@ namespace RockPaperScissorsProject
                     ChooseGesture();
                     break;
             }
+            Console.Clear();
         }
     }
 }
