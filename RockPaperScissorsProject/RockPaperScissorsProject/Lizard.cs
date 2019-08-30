@@ -13,7 +13,7 @@ namespace RockPaperScissorsProject
             name = "lizard";
         }
 
-        public override bool GestureWinsAgainst(Gesture comparisonPlayerGestureChoice)
+        public override bool WinsAgainst(Gesture comparisonPlayerGestureChoice)
         {
             if (comparisonPlayerGestureChoice.name == "spock" || comparisonPlayerGestureChoice.name == "paper")
             {

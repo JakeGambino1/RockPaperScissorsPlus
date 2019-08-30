@@ -15,6 +15,6 @@ namespace RockPaperScissorsProject
 
         }
 
-        public abstract bool GestureWinsAgainst(Gesture comparisonPlayerGestureChoice);
+        public abstract bool WinsAgainst(Gesture comparisonPlayerGestureChoice);
     }
 }

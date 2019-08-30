@@ -28,8 +28,8 @@ namespace RockPaperScissorsProject
             p1.ChooseGesture();
             p2.ChooseGesture();
             CompareGestures();
-            AddScoreToPlayer();
-            CheckScoreForWinner();
+            AddScoreToWinner();
+            CheckRoundWinnerScore();
             Console.ReadLine();
         }
         public void ChoosePlayers()
@@ -82,21 +82,21 @@ namespace RockPaperScissorsProject
         {
             p1.isWinner = false;
             p2.isWinner = false;
-            if (p1.gesture.GestureWinsAgainst(p2.gesture))
+            if (p1.gesture.WinsAgainst(p2.gesture))
             {
                 return p1.isWinner = true;
             }
-            else if (p2.gesture.GestureWinsAgainst(p1.gesture))
+            else if (p2.gesture.WinsAgainst(p1.gesture))
             {
                 return p2.isWinner = true;
             }
-            else if ((!p1.gesture.GestureWinsAgainst(p2.gesture) && !p2.gesture.GestureWinsAgainst(p1.gesture)))
+            else if ((!p1.gesture.WinsAgainst(p2.gesture) && !p2.gesture.WinsAgainst(p1.gesture)))
             {
                 Console.WriteLine("Tie! Go again!");
             }
             return false;
         }
-        public void AddScoreToPlayer()
+        public void AddScoreToWinner()
         {
             if (p1.isWinner == true)
             {
@@ -108,7 +108,7 @@ namespace RockPaperScissorsProject
             }
             return;
         }
-        public void CheckScoreForWinner()
+        public void CheckRoundWinnerScore()
         {
             if (p1.score == (bestOfX + 1) / 2)
             {
