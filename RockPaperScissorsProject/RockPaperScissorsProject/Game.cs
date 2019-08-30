@@ -8,18 +8,15 @@ namespace RockPaperScissorsProject
 {
     public class Game
     {
-        // member variables
         public Player p1;
         public Player p2;
         public int bestOfX;
 
-        // constructor
         public Game()
         {
             
         }
 
-        // Begin Game
         public void BeginMatch()
         {
             ChoosePlayers();
@@ -85,7 +82,6 @@ namespace RockPaperScissorsProject
         {
             p1.isWinner = false;
             p2.isWinner = false;
-
             if (p1.gesture.GestureWinsAgainst(p2.gesture))
             {
                 return p1.isWinner = true;
@@ -122,7 +118,6 @@ namespace RockPaperScissorsProject
             {
                 Console.WriteLine(p2.name + " has won this epic match!");
             }
-
             Console.WriteLine("Current score: \n" + p1.name + " " + p1.score + " - " + p2.score + " " + p2.name);
             while (p1.score != (bestOfX + 1) /2 && p2.score != (bestOfX + 1) / 2)
             {

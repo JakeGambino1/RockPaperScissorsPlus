@@ -8,15 +8,13 @@ namespace RockPaperScissorsProject
 {
     public class HumanPlayer : Player
     {
-        // member variables
         public string gestureChoice;
 
-        // constructor
         public HumanPlayer()
         {
 
         }
-        // member methods
+
         public override void ChooseName()
         {
             Console.WriteLine("Choose a name for your existence.");

@@ -8,17 +8,12 @@ namespace RockPaperScissorsProject
 {
     public abstract class Gesture
     {
-        // member variables
         public string name;
         
-        // constructor
         public Gesture()
         {
 
         }
-
-        // member methods
-        //public abstract bool GestureLosesTo();
 
         public abstract bool GestureWinsAgainst(Gesture comparisonPlayerGestureChoice);
     }

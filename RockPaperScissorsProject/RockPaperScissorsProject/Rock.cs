@@ -8,15 +8,11 @@ namespace RockPaperScissorsProject
 {
     public class Rock : Gesture
     {
-        // member variables
-
-        // constructor
         public Rock()
         {
             name = "rock";
         }
 
-        // member methods
         public override bool GestureWinsAgainst(Gesture comparisonPlayerGestureChoice)
         {
             if (comparisonPlayerGestureChoice.name == "scissors" || comparisonPlayerGestureChoice.name == "lizard")
@@ -25,7 +21,5 @@ namespace RockPaperScissorsProject
             }
             return false;
         }
-
-        // beats scissors and lizard
     }
 }
