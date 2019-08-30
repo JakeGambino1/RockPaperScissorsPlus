@@ -10,7 +10,7 @@ namespace RockPaperScissorsProject
     {
         // member variables
         public string name;
-        public string gesture;
+        public Gesture gesture;
         public int score;
         public bool isWinner;
 

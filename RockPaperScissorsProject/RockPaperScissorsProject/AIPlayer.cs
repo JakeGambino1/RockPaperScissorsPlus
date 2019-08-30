@@ -9,7 +9,7 @@ namespace RockPaperScissorsProject
     public class AIPlayer : Player
     {
         // member variables
-        public static List<string> gestureChoices = new List<string>();
+        public static List<Gesture> gestureChoices = new List<Gesture>();
         public static Random random = new Random();
 
         // constructor
@@ -26,11 +26,11 @@ namespace RockPaperScissorsProject
 
         public override void ChooseGesture()
         {
-            gestureChoices.Add("rock");
-            gestureChoices.Add("paper");
-            gestureChoices.Add("scissors");
-            gestureChoices.Add("lizard");
-            gestureChoices.Add("spock");
+            gestureChoices.Add(new Rock());
+            gestureChoices.Add(new Paper());
+            gestureChoices.Add(new Scissors());
+            gestureChoices.Add(new Lizard());
+            gestureChoices.Add(new Spock());
 
             int randomNumber = random.Next(0, gestureChoices.Count());
             gesture = gestureChoices[randomNumber];

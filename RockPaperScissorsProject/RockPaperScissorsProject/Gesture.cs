@@ -6,12 +6,20 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsProject
 {
-    public class Gesture
+    public abstract class Gesture
     {
         // member variables
-       
+        public string name;
+        
         // constructor
+        public Gesture()
+        {
+
+        }
 
         // member methods
+        //public abstract bool GestureLosesTo();
+
+        public abstract bool GestureWinsAgainst(Gesture comparisonPlayerGestureChoice);
     }
 }

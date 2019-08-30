@@ -66,7 +66,10 @@ namespace RockPaperScissorsProject
                 Console.WriteLine("How long of a series do you want? Best of X (odd numbers only)");
                 bestOfX = Convert.ToInt32(Console.ReadLine());
             }
-            catch (Exception){}
+            catch (Exception)
+            {
+                Console.WriteLine("Numbers only there, smart guy.");
+            }
 
             if (bestOfX >= 3 && bestOfX % 2 == 1)
             {
@@ -82,26 +85,17 @@ namespace RockPaperScissorsProject
         {
             p1.isWinner = false;
             p2.isWinner = false;
-            if ((p1.gesture == "rock" && (p2.gesture == "scissors" || p2.gesture == "lizard")) ||
-                (p1.gesture == "scissors" && (p2.gesture == "paper" || p2.gesture == "lizard")) ||
-                (p1.gesture == "paper" && (p2.gesture == "rock" || p2.gesture == "spock")) ||
-                (p1.gesture == "lizard" && (p2.gesture == "spock" || p2.gesture == "paper")) ||
-                (p1.gesture == "spock" && (p2.gesture == "scissors" || p2.gesture == "rock")))
+
+            if (p1.gesture.GestureWinsAgainst(p2.gesture))
             {
-                Console.WriteLine(p1.name + " won the round with " + p1.gesture + "!" + p2.name + "'s " + p2.gesture + " was no match!");
-                p1.isWinner = true;
+                return p1.isWinner = true;
             }
-            else if ((p2.gesture == "rock" && (p1.gesture == "scissors" || p1.gesture == "lizard")) ||
-                (p2.gesture == "scissors" && (p1.gesture == "paper" || p1.gesture == "lizard")) ||
-                (p2.gesture == "paper" && (p1.gesture == "rock" || p1.gesture == "spock")) ||
-                (p2.gesture == "lizard" && (p1.gesture == "spock" || p1.gesture == "paper")) ||
-                (p2.gesture == "spock" && (p1.gesture == "scissors" || p1.gesture == "rock")))
+            else if (p2.gesture.GestureWinsAgainst(p1.gesture))
             {
-                Console.WriteLine(p2.name + " won the round with " + p2.gesture + "!" + p1.name + "'s " + p1.gesture + " was no match!");
-                p2.isWinner = true;
+                return p2.isWinner = true;
             }
-            else
-            { 
+            else if ((!p1.gesture.GestureWinsAgainst(p2.gesture) && !p2.gesture.GestureWinsAgainst(p1.gesture)))
+            {
                 Console.WriteLine("Tie! Go again!");
             }
             return false;

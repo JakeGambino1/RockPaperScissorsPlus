@@ -30,22 +30,22 @@ namespace RockPaperScissorsProject
             switch (gestureChoice)
             {
                 case "rock":
-                    gesture = "rock";
+                    gesture = new Rock();
                     break;
                 case "paper":
-                    gesture = "paper";
+                    gesture = new Paper();
                     break;
                 case "scissors":
-                    gesture = "scissors";
+                    gesture = new Scissors();
                     break;
                 case "lizard":
-                    gesture = "lizard";
+                    gesture = new Lizard();
                     break;
                 case "spock":
-                    gesture = "spock";
+                    gesture = new Spock();
                     break;
                 default:
-                    Console.WriteLine("YOU FOOL! " + gestureChoice + " is not effective in this battle!");
+                    Console.WriteLine("YOU FOOL! " + gestureChoice + " is not in the State-approved list of gestures");
                     ChooseGesture();
                     break;
             }
