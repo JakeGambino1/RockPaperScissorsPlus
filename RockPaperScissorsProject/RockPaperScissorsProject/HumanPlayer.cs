@@ -17,14 +17,12 @@ namespace RockPaperScissorsProject
 
         public override void ChooseName()
         {
-            Console.WriteLine("Choose a name for your existence.");
-            playerName = Console.ReadLine();
+            playerName = UI.GetUserInput("Choose a name for your existence.");
             Console.WriteLine("Player confirmed as " + playerName);
         }
         public override void ChooseGesture()
         {
-            Console.WriteLine("What weapon will " + playerName + " choose?-- 'rock', 'paper', 'scissors', 'lizard', or 'spock'?");
-            gestureChoice = Console.ReadLine();
+            gestureChoice = UI.GetUserInput("What weapon will " + playerName + " choose?-- 'rock', 'paper', 'scissors', 'lizard', or 'spock'?");
             switch (gestureChoice)
             {
                 case "rock":

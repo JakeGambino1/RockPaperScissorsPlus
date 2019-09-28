@@ -60,8 +60,7 @@ namespace RockPaperScissorsProject
         {
             try
             {
-                Console.WriteLine("How long of a series do you want? Best of X (odd numbers only)");
-                bestOfX = Convert.ToInt32(Console.ReadLine());
+                bestOfX = Convert.ToInt32(UI.GetUserInput("How long of a series do you want? Best of X (odd numbers only)"));
             }
             catch (Exception)
             {
